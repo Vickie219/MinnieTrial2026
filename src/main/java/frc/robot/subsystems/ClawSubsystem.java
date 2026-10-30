@@ -3,16 +3,33 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.subsystems;
-import Rev
+import com.revrobotics.spark.SparkMax;
+
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+
+//Motor 10-20 is clawSubsystem 
 public class ClawSubsystem extends SubsystemBase {
+  public static SparkMax clawmotor = new SparkMax(12, null);
+
   /** Creates a new ExampleSubsystem. */
   public ClawSubsystem() {
 
-    public SparkMax = New SparkMax(); 
+  }
 
+  public Command runMotor(double speed) {
+    return
+       run(()-> {spinmotor(speed);
+    }); 
+  }
+
+  public void spinmotor(double clawspeed){
+      clawmotor.set(clawspeed);
+  }
+
+  public void stopMotor(){
+    clawmotor.set(0);
   }
 
   /**
