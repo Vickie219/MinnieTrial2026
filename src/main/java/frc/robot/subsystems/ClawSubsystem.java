@@ -11,11 +11,11 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 //Motor 10-20 is clawSubsystem 
 public class ClawSubsystem extends SubsystemBase {
-  public static SparkMax clawmotor = new SparkMax(12, null);
+  private SparkMax clawmotor;
 
   /** Creates a new ExampleSubsystem. */
   public ClawSubsystem() {
-
+      clawmotor = new SparkMax(12, null); 
   }
 
   public Command runMotor(double speed) {
