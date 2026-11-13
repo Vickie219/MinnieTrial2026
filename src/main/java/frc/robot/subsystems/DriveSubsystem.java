@@ -19,7 +19,7 @@ public class DriveSubsystem extends SubsystemBase {
     // private final Constants constants = new Constants();
 
     private DifferentialDrive differentialDrive;
-    private final CommandXboxController m_joyStick = new CommandXboxController(0);
+    private final CommandXboxController xboxController = new CommandXboxController(0);
     private final SparkMax leftfollower = new SparkMax(Constants.leftFollowerID, MotorType.kBrushless);
     private final SparkMax leftleader = new SparkMax(Constants.leftLeaderID, MotorType.kBrushless);
     private final SparkMax rightfollower = new SparkMax(Constants.rightFollowerID, MotorType.kBrushless);
@@ -28,9 +28,9 @@ public class DriveSubsystem extends SubsystemBase {
     //private final DifferentialDrive robotDrive;
     //can control the two sides with two seperate motors
 
-    public DriveSubsystem(RobotContainer xboxController ) {
+    public DriveSubsystem(CommandXboxController xboxController ) {
        
-    differentialDrive = new DifferentialDrive(leftfollower, rightfollower);
+    differentialDrive = new DifferentialDrive(leftleader, rightleader);
    
     
     }
@@ -50,7 +50,7 @@ public class DriveSubsystem extends SubsystemBase {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return run(
-        () -> { runMotor(m_joyStick.getLeftY(), m_joyStick.getRightX());
+        () -> { runMotor(xboxController.getLeftY(), xboxController.getRightX());
                 
           /* one-time action goes here */
         }
