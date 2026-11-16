@@ -1,7 +1,8 @@
 package frc.robot.subsystems;
-import frc.robot.Constants; 
+import frc.robot.Constants.ElevatorConstants;
 
 import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.SparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -14,18 +15,12 @@ private SparkMax LeftLiftmotor;
 private SparkMax RightLiftmotor;
 
 public OurElevatorSubsystem() { 
-
-LeftLiftmotor = new SparkMax(Constants.LeftLiftmotorID, null); 
-RightLiftmotor = new SparkMax(Constants.RightLiftmotorID, null);
-  }
-
-public void LeftLiftmotor(){
-    LeftLiftmotor.set(0.5);
-} 
-
-public void RightLiftmotor(){ 
-    RightLiftmotor.set(0.5);
+LeftLiftmotor = new SparkMax(ElevatorConstants.LeftLiftmotorID, MotorType.kBrushless); 
+RightLiftmotor = new SparkMax(ElevatorConstants.RightLiftmotorID, MotorType.kBrushless);
+  
 }
+
+
 
   public double calculate(double velocity){
     return calculate(velocity);

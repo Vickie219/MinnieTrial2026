@@ -16,7 +16,15 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
-
+public static class ElevatorConstants {
   public final static int LeftLiftmotorID = 22;
   public final static int RightLiftmotorID = 20;  
+  public final static int kp = 0;
+  public final static int ki = 0;
+  public final static int kd = 0;
+  public final static int ks = 0;
+  public final static int kv = 0;
+  public final static int ka = 0; 
+
+  }
 }
