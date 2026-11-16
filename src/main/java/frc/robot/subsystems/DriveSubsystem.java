@@ -28,9 +28,10 @@ public class DriveSubsystem extends SubsystemBase {
     //private final DifferentialDrive robotDrive;
     //can control the two sides with two seperate motors
 
-    public DriveSubsystem(CommandXboxController xboxController ) {
+    public DriveSubsystem(CommandXboxController driveController ) {
        
     differentialDrive = new DifferentialDrive(leftleader, rightleader);
+    setDefaultCommand(joyStickSpeed());
    
     
     }
@@ -54,8 +55,7 @@ public class DriveSubsystem extends SubsystemBase {
                 
           /* one-time action goes here */
         }
-        
-        );
+     );
     }
 
        // SparkMax rightfollower;

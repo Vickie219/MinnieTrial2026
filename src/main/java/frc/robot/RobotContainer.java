@@ -25,14 +25,15 @@ public class RobotContainer {
   //private final ClawSubsystem m_clawSubsystem = new ClawSubsystem();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController xboxController = 
+  private final CommandXboxController driverController = 
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
-  private final DriveSubsystem drive = new DriveSubsystem(xboxController);
+  private final DriveSubsystem drive = new DriveSubsystem(driverController);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
+    drive.joyStickSpeed(); 
   }
 
 
@@ -48,8 +49,8 @@ public class RobotContainer {
    */
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    // new Trigger(m_exampleSubsystem::exampleCondition)
-    //     .onTrue(new ExampleCommand(m_exampleSubsystem));
+    //  new Trigger(m_exampleSubsystem::exampleCondition)
+    //      .onTrue(new ExampleCommand(m_exampleSubsystem));
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
