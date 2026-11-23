@@ -19,12 +19,15 @@ public final class Constants {
 public static class ElevatorConstants {
   public final static int LeftLiftmotorID = 22;
   public final static int RightLiftmotorID = 20;  
-  public final static int kp = 0;
-  public final static int ki = 0;
-  public final static int kd = 0;
-  public final static int ks = 0;
-  public final static int kv = 0;
-  public final static int ka = 0; 
-
+  public final static double elevatorKp = 0;
+  public final static double elevatorKi = 0;
+  public final static double elevatorKd = 0;
+  public final static double elevatorKs = 0;
+  public final static double elevatorKg = 0;
+  public final static double elevatorKV = 0;
+  public final static double elevatorKa = 0; 
+  public final static double elevatorMaxVelocity = 0;
+  public final static double elevatorMaxAcceleration = 0; 
+  public final static double elevatorRampRate = 0; 
   }
 }
