@@ -1,4 +1,5 @@
 package frc.robot.subsystems;
+
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
 
@@ -14,7 +15,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
 
 //drive train  motors 
-public class DriveSubsystem extends SubsystemBase {
+public class DriveTrain extends SubsystemBase {
 
     // private final Constants constants = new Constants();
 
@@ -28,7 +29,7 @@ public class DriveSubsystem extends SubsystemBase {
     //private final DifferentialDrive robotDrive;
     //can control the two sides with two seperate motors
 
-    public DriveSubsystem(CommandXboxController driveController ) {
+    public DriveTrain(CommandXboxController driveController ) {
        
     differentialDrive = new DifferentialDrive(leftleader, rightleader);
     setDefaultCommand(joyStickSpeed());
@@ -51,7 +52,7 @@ public class DriveSubsystem extends SubsystemBase {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return run(
-        () -> { runMotor(xboxController.getLeftY(), xboxController.getRightX());
+        () -> { runMotor(xboxController.getLeftY()*-0.5, xboxController.getRightY()*-0.5);
                 
           /* one-time action goes here */
         }
@@ -66,12 +67,7 @@ public class DriveSubsystem extends SubsystemBase {
        // );
     public void runMotor(double speed, double rotation) {
     // This passes the joystick values into WPILib's arcade drive math
-    differentialDrive.arcadeDrive(speed, rotation);
+    differentialDrive.tankDrive(speed, rotation);
     }
         
- }
-
-        
-
- 
-
+}
