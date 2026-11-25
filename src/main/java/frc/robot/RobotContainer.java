@@ -8,6 +8,8 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ClawSubsystem;
+import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.OurElevatorSubsystem;
 //import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -23,11 +25,14 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
  // private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final ClawSubsystem m_clawSubsystem = new ClawSubsystem();
+  private final OurElevatorSubsystem m_OurElevatorSubsystem = new OurElevatorSubsystem();
+  private final DriveSubsystem m_DriveSubsystem = new DriveSubsystem();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
+  private final CommandXboxController m_operatorController =
+      new CommandXboxController(OperatorConstants.kDriverControllerPort); // Operator controller
   private final CommandXboxController m_driverController =
-      new CommandXboxController(OperatorConstants.kDriverControllerPort);
-
+      new CommandXboxController(OperatorConstants.kDriverControllerPort); // Driver controller
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
@@ -50,11 +55,17 @@ public class RobotContainer {
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
-    m_driverController.rightTrigger().onTrue(m_clawSubsystem.runMotor(1));
-    m_driverController.rightTrigger().onFalse(m_clawSubsystem.runMotor(0)); 
-    m_driverController.leftTrigger().onTrue(m_clawSubsystem.runMotor(-1));
-    m_driverController.leftTrigger().onFalse(m_clawSubsystem.runMotor(0)); 
-      // m_driverController.y().whileTrue(m_clawSubsystem.spinmotor(0));
+    m_operatorController.rightTrigger().onTrue(m_clawSubsystem.runMotor(1));
+    m_operatorController.rightTrigger().onFalse(m_clawSubsystem.runMotor(0)); 
+    m_operatorController.leftTrigger().onTrue(m_clawSubsystem.runMotor(-1));
+    m_operatorController.leftTrigger().onFalse(m_clawSubsystem.runMotor(0)); 
+    
+    m_operatorController.rightBumper().onTrue(m_OurElevatorSubsystem.runMotor(1));
+    m_operatorController.rightBumper().onFalse(m_OurElevatorSubsystem.runMotor(0)); 
+    m_operatorController.leftBumper().onTrue(m_OurElevatorSubsystem.runMotor(-1));
+    m_operatorController.leftBumper().onFalse(m_OurElevatorSubsystem.runMotor(0)); 
+
+    
   }
 
   /**

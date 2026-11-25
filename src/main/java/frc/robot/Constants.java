@@ -4,6 +4,10 @@
 
 package frc.robot;
 
+import static edu.wpi.first.units.Units.MetersPerSecond;
+import static edu.wpi.first.units.Units.Second;
+import static edu.wpi.first.units.Units.Meters;
+
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -29,5 +33,13 @@ public static class ElevatorConstants {
   public final static double elevatorMaxVelocity = 0;
   public final static double elevatorMaxAcceleration = 0; 
   public final static double elevatorRampRate = 0; 
-  }
+  public final static double kElevatorGearing = 0;
+  public final static double kElevatorCarrigeMass = 0;
+  public static final double kElevatorKp = 0; 
+  public static final double kElevatorKi = 0; 
+  public static final double kElevatorKd = 0;
+ /*  public static final double  kMaxVelocity = Meters.of(0).per(Second).in(MetersPerSecond);
+ public static final double kMaxAcceleration = Meters.of(0).per(Second).in(MetersPerSecond); */
+ public static final double kEle
+}
 }
